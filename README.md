@@ -1,2 +1,3 @@
 # Python-for-programmers
-Repository for participants of the "Fortran for programmers" training
+
+Repository for participants of the "Python for programmers" training
