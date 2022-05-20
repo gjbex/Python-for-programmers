@@ -1,0 +1,7 @@
+name: python_for_programmers
+channels:
+  - defaults
+dependencies:
+  - jupyterlab
+  - matplotlib
+prefix: /home/gjb/miniconda3/envs/python_for_programmers
