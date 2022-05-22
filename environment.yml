@@ -2,6 +2,7 @@ name: python_for_programmers
 channels:
   - defaults
 dependencies:
+  - python=3.10
   - jupyterlab
   - matplotlib
 prefix: /home/gjb/miniconda3/envs/python_for_programmers
