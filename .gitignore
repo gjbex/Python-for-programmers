@@ -1,1 +1,9 @@
+# direnv configuration file
 .envrc
+
+# editor backup files
+*~
+*.bak
+
+# checkpoint directory
+.ipynb_checkpoints/
