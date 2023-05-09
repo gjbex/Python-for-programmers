@@ -32,3 +32,5 @@ certain subtle points.
 1. `word_chains.ipynb`: create word chains out of a list of words so that the first
    letter of a word is the same as the last letter of the previous.  Search for the
    longest chain.
+1. `knights_tour.ipynb`: example of using backtracking to solve the knight's tour
+   problem.
