@@ -34,3 +34,5 @@ certain subtle points.
    longest chain.
 1. `knights_tour.ipynb`: example of using backtracking to solve the knight's tour
    problem.
+1. `flatten.ipynb`: `itertools.chain` may not flatten a data structure as you might
+   expect or want.
