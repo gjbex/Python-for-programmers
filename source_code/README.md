@@ -36,3 +36,4 @@ certain subtle points.
    problem.
 1. `flatten.ipynb`: `itertools.chain` may not flatten a data structure as you might
    expect or want.
+1. `matrix_rotation.ipynb`: rotate a matrix over 90 degrees.
