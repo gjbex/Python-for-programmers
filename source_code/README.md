@@ -13,7 +13,7 @@ certain subtle points.
 1. `dice.ipynb`: modelling throwing two dice and visualizng the results.
 1. `dynamic_programming.ipynb`: some illustrations of using memoization and
    dynamic programming to efficiently solve mathematical problems.
-1. generations.ipynb`: searching for the most recent common ancestor and the
+1. `generations.ipynb`: searching for the most recent common ancestor and the
   identical ancestor generation.
 1. `hundred_prisoners.ipynb`: implementation of the solution to the "hundred
    prisoners` puzzle.
