@@ -37,3 +37,4 @@ certain subtle points.
 1. `flatten.ipynb`: `itertools.chain` may not flatten a data structure as you might
    expect or want.
 1. `matrix_rotation.ipynb`: rotate a matrix over 90 degrees.
+1. `ocean_view.ipynb`: compute which buildings have an ocean view.
