@@ -36,3 +36,4 @@ certain subtle points.
    problem.
 1. `flatten.ipynb`: `itertools.chain` may not flatten a data structure as you might
    expect or want.
+1. `ocean_view.ipynb`: compute which buildings have an ocean view.
