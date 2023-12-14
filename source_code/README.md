@@ -39,3 +39,5 @@ certain subtle points.
 1. `matrix_rotation.ipynb`: rotate a matrix over 90 degrees.
 1. `ocean_view.ipynb`: compute which buildings have an ocean view.
 1. `cookie_monster.ipynb`: find the slowest eating rate for the cookie monster.
+1. `compute_pi.ipynb`: compute the value of pi, taking into account round-off
+   errors.
