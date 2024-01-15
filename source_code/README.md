@@ -41,3 +41,5 @@ certain subtle points.
 1. `cookie_monster.ipynb`: find the slowest eating rate for the cookie monster.
 1. `compute_pi.ipynb`: compute the value of pi, taking into account round-off
    errors.
+1. `iterative_binary_trees.ipynb`: using iteration rather than recursion to traverse
+   binary trees.
