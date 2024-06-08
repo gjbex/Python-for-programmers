@@ -43,4 +43,7 @@ certain subtle points.
    errors.
 1. `iterative_binary_trees.ipynb`: using iteration rather than recursion to traverse
    binary trees.
-1. `quad_tree.ipynb`: implementation of a quad tree and comparison to naive approach.
+1. `quad_tree.ipynb`: implementation of a quad tree and comparison to naive
+   approach.
+1. `cycles.ipynb`: find cycles in periodic functions.  Naive vs. approach using
+   dictionaries, vs. Floyd's algorithm.
