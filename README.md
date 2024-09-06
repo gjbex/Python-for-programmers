@@ -15,3 +15,4 @@ Repository for participants of the "Python for programmers" training
 * `docs`: website for this training.
 * `CONTRIBUTING.md`: how to contribute to this material.
 * `LICENSE`: license under which this material is released.
+* `CODE_OF_CONDUCT.md`: code of conduct for this training.
