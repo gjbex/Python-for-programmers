@@ -47,3 +47,4 @@ certain subtle points.
    approach.
 1. `cycles.ipynb`: find cycles in periodic functions.  Naive vs. approach using
    dictionaries, vs. Floyd's algorithm.
+1. `ocean_view.ipynb`: compute which buildings have an ocean view.
