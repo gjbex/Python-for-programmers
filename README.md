@@ -12,5 +12,6 @@ Repository for participants of the "Python for programmers" training
   Jupyter notebooks on specific topics.
 * `environment.yml`/`python_for_programmers_linux64_conda_specs.txt`: conda environment specifications with all
   Python packages used in this material.
+* `docs`: website for this training.
 * `CONTRIBUTING.md`: how to contribute to this material.
 * `LICENSE`: license under which this material is released.
