@@ -48,3 +48,4 @@ certain subtle points.
 1. `cycles.ipynb`: find cycles in periodic functions.  Naive vs. approach using
    dictionaries, vs. Floyd's algorithm.
 1. `ocean_view.ipynb`: compute which buildings have an ocean view.
+1. `fibonacci.ipynb`: comparison of various implementations of the Fibonacci fucntion.
