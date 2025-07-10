@@ -1,8 +1,8 @@
 name: python_for_programmers
 channels:
-  - defaults
+  - conda-forge
 dependencies:
   - python
   - jupyterlab
   - matplotlib
-prefix: /home/gjb/miniconda3/envs/python_for_programmers
+prefix: /home/gjb/mambaforge/envs/python_for_programmers
