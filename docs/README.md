@@ -61,6 +61,13 @@ If you plan to do Python programming in a Linux or HPC environment you should
 be familiar with these as well.
 
 
+## Levels
+
+* Introductory: 40 %
+* Intermediate: 40 %
+* Advanced: 20 %
+
+
 ## Trainer(s)
 
   * Geert Jan Bex ([geertjan.bex@uhasselt.be](mailto:geertjan.bex@uhasselt.be))
