@@ -51,3 +51,4 @@ certain subtle points.
 1. `fibonacci.ipynb`: comparison of various implementations of the Fibonacci fucntion.
 1. `roll_sixes.ipynb`: what is the expected number of rolls to get sixes?
 1. `roll_sixes.ipynb`: what is the expected number of rolls to get a sequence of sixes?
+1. `pi.ipynb`: compute the value of pi using a non-trivial geometric identity.
