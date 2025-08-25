@@ -50,3 +50,4 @@ certain subtle points.
 1. `ocean_view.ipynb`: compute which buildings have an ocean view.
 1. `fibonacci.ipynb`: comparison of various implementations of the Fibonacci fucntion.
 1. `roll_sixes.ipynb`: what is the expected number of rolls to get sixes?
+1. `roll_sixes.ipynb`: what is the expected number of rolls to get a sequence of sixes?
