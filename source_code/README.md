@@ -52,3 +52,5 @@ certain subtle points.
 1. `roll_sixes.ipynb`: what is the expected number of rolls to get sixes?
 1. `roll_sixes.ipynb`: what is the expected number of rolls to get a sequence of sixes?
 1. `pi.ipynb`: compute the value of pi using a non-trivial geometric identity.
+1. `intersection_trees`: find the intervals in a query that intersect with a set of
+   intervals in a database, using an interval tree.
