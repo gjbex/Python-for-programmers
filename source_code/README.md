@@ -54,3 +54,4 @@ certain subtle points.
 1. `pi.ipynb`: compute the value of pi using a non-trivial geometric identity.
 1. `intersection_trees`: find the intervals in a query that intersect with a set of
    intervals in a database, using an interval tree.
+1. `two_complement.ipynb`: illustrate two's complement representation of integers.
