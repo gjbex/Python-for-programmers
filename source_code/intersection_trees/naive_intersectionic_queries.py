@@ -44,11 +44,7 @@ def create_db(size: int = 1_000, max_end: int = 1_000_000) -> Db:
     Returns
     -------
     Db
-        a set of half-open intervals
-
-    Note
-    ----
-    The database may contain less than the specified number of intervals if the same interval is generated multiple times.
+        a list of half-open intervals
     '''
     return [generate_interval(max_end) for _ in range(size)]
 
@@ -66,11 +62,7 @@ def create_queries(size: int = 1_000, max_end: int = 1_000_000) -> Queries:
     Returns
     -------
     Queries
-        a set of half-open intervals
-
-    Note
-    ----
-    The queries may contain less than the specified number of intervals if the same interval is generated multiple times.
+        a list of half-open intervals
     '''
     return create_db(size=size, max_end=max_end)
 
