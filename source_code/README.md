@@ -13,7 +13,7 @@ certain subtle points.
 1. `dice.ipynb`: modelling throwing two dice and visualizng the results.
 1. `dynamic_programming.ipynb`: some illustrations of using memoization and
    dynamic programming to efficiently solve mathematical problems.
-1. generations.ipynb`: searching for the most recent common ancestor and the
+1. `generations.ipynb`: searching for the most recent common ancestor and the
   identical ancestor generation.
 1. `hundred_prisoners.ipynb`: implementation of the solution to the "hundred
    prisoners` puzzle.
@@ -36,4 +36,16 @@ certain subtle points.
    problem.
 1. `flatten.ipynb`: `itertools.chain` may not flatten a data structure as you might
    expect or want.
+1. `matrix_rotation.ipynb`: rotate a matrix over 90 degrees.
 1. `ocean_view.ipynb`: compute which buildings have an ocean view.
+1. `cookie_monster.ipynb`: find the slowest eating rate for the cookie monster.
+1. `compute_pi.ipynb`: compute the value of pi, taking into account round-off
+   errors.
+1. `iterative_binary_trees.ipynb`: using iteration rather than recursion to traverse
+   binary trees.
+1. `quad_tree.ipynb`: implementation of a quad tree and comparison to naive
+   approach.
+1. `cycles.ipynb`: find cycles in periodic functions.  Naive vs. approach using
+   dictionaries, vs. Floyd's algorithm.
+1. `ocean_view.ipynb`: compute which buildings have an ocean view.
+1. `fibonacci.ipynb`: comparison of various implementations of the Fibonacci fucntion.
