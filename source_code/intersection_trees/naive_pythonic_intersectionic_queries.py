@@ -2,13 +2,24 @@
 Naive and very Pythonic implementation of interval intersection queries.
 '''
 
-import collections
 import itertools
 import random
 import typing
 
 
-Interval = collections.namedtuple('Interval', ('s', 'e'))
+class Interval(typing.NamedTuple):
+    '''A half-open interval [s, e)
+
+    Attributes
+    ----------
+    s: int
+        start of the interval, inclusive
+    e: int
+        end of the interval, exclusive
+    '''
+    s: int
+    e: int
+
 Db: typing.TypeAlias = set[Interval]
 Queries: typing.TypeAlias = Db
 QueryResult: typing.TypeAlias = set[tuple[Interval, Interval]]
