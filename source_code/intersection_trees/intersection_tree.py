@@ -226,10 +226,31 @@ def create_queries(size: int = 1_000, max_end: int = 1_000_000) -> Queries:
 
 
 def populate_db(db: Node | None, intervals: typing.Sequence[Interval]) -> Node:
+    '''Populate an existing database with additional intervals or create a new one.
+
+    Parameters
+    ----------
+    db: Node | None
+        existing database to populate, if None a new database is created
+    intervals: typing.Sequence[Interval]
+        intervals to insert into the database
+
+    Returns
+    -------
+    Node
+        root of the populated intersection tree
+
+    Raises
+    ------
+    ValueError
+        if intervals is empty
+    '''
     if len(intervals) == 0:
         raise ValueError('At least 1 interval is required')
+    start_idx = 0
     if db is None:
-        db = Node(intervals.pop(0))
-    for interval in intervals:
+        db = Node(intervals[0])
+        start_idx = 1
+    for interval in intervals[start_idx:]:
         db.insert(interval)
     return db
