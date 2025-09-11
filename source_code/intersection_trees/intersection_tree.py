@@ -229,7 +229,11 @@ def populate_db(db: Node | None, intervals: typing.Sequence[Interval]) -> Node:
     if len(intervals) == 0:
         raise ValueError('At least 1 interval is required')
     if db is None:
-        db = Node(intervals.pop(0))
-    for interval in intervals:
-        db.insert(interval)
+        db = Node(intervals[0])
+        # Start from index 1 since we used the first interval for the root
+        start_index = 1
+    else:
+        start_index = 0
+    for i in range(start_index, len(intervals)):
+        db.insert(intervals[i])
     return db
