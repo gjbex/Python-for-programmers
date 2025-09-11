@@ -223,3 +223,13 @@ def create_queries(size: int = 1_000, max_end: int = 1_000_000) -> Queries:
         a list of half-open intervals
     '''
     return [generate_interval(max_end) for _ in range(size)]
+
+
+def populate_db(db: Node | None, intervals: typing.Sequence[Interval]) -> Node:
+    if len(intervals) == 0:
+        raise ValueError('At least 1 interval is required')
+    if db is None:
+        db = Node(intervals.pop(0))
+    for interval in intervals:
+        db.insert(interval)
+    return db
