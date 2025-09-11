@@ -148,7 +148,7 @@ def generate_interval(max_end: int = 1_000_000_000) -> Interval:
     Returns
     -------
     Interval
-        Tuple (start, end) such that end - start >= 1
+        Tuple (start, end) such that end - start > 1
         
     Raises
     ------
@@ -159,7 +159,7 @@ def generate_interval(max_end: int = 1_000_000_000) -> Interval:
         raise ValueError(f"max_end must be at least 2, got {max_end}")
     
     start = random.randint(0, max_end - 2)
-    end = random.randint(start + 1, max_end)
+    end = random.randint(start + 2, max_end)
     return start, end
 
 
