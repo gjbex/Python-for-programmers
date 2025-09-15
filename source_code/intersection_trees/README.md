@@ -17,6 +17,8 @@ on intervals.
 1. `array_intersection_tree.py`: alternative array-based implementation of an intersection tree.
 1. `test_comparison.py`: comprehensive test suite comparing both implementations.
 1. `performance_analysis.py`: detailed performance analysis and benchmarking tools.
+1. `build_time_analysis.py`: comprehensive build time performance analysis.
+1. `build_time_focused_analysis.py`: focused analysis answering build vs query performance questions.
 
 ## Implementation Comparison
 
@@ -33,7 +35,23 @@ on intervals.
 - Slightly slower execution (~20% overhead) due to array indexing
 
 ### Performance Characteristics
-- **Memory Usage**: Array-based implementation uses ~70% less memory
-- **Execution Speed**: Traditional implementation is ~20% faster
-- **Cache Locality**: Array-based shows potential for better cache performance with sequential access patterns
-- **Scalability**: Both implementations scale similarly with increasing dataset size
+
+#### Query Performance
+- **Traditional (Node-based)**: ~20% faster query execution
+- **Array-based**: ~20% slower query execution
+- Both scale similarly with increasing dataset size
+
+#### Build/Insertion Performance  
+- **Traditional (Node-based)**: ~12% faster build time
+- **Array-based**: ~12% slower build time
+- Node-based achieves ~310k insertions/sec vs ~250k insertions/sec for array-based
+
+#### Memory Usage
+- **Traditional (Node-based)**: Higher memory usage (~3x more)
+- **Array-based**: ~70% less memory usage
+- Better cache locality potential for sequential access patterns
+
+#### Trade-off Summary
+- **Array-based**: Slower build (~12%) and query (~20%) but major memory savings (~70%)
+- **Node-based**: Faster in all operations but uses significantly more memory
+- **Recommendation**: Use node-based for performance-critical, use array-based for memory-constrained environments
