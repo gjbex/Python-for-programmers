@@ -7,3 +7,6 @@
 
 # checkpoint directory
 .ipynb_checkpoints/
+
+# Jupyter Lab LSP temporary files
+.virtual_documents/
