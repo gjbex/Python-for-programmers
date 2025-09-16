@@ -3,8 +3,10 @@
 Code samples for in the presentation, or provided as extra material, illustrating
 certain subtle points.
 
+
 ## What is it?
 
+1. `presentation`: code used in the presentation.
 1. `coins.ipynb`: change a sum of money into coinage, comparing a brute force
    approach to recursion, memoization and dynamic programming.
 1. `condorcet_voting.ipynb`: implementation of Condorcet voting.
@@ -49,3 +51,9 @@ certain subtle points.
    dictionaries, vs. Floyd's algorithm.
 1. `ocean_view.ipynb`: compute which buildings have an ocean view.
 1. `fibonacci.ipynb`: comparison of various implementations of the Fibonacci fucntion.
+1. `roll_sixes.ipynb`: what is the expected number of rolls to get sixes?
+1. `roll_sixes.ipynb`: what is the expected number of rolls to get a sequence of sixes?
+1. `pi.ipynb`: compute the value of pi using a non-trivial geometric identity.
+1. `intersection_trees`: find the intervals in a query that intersect with a set of
+   intervals in a database, using an interval tree.
+1. `two_complement.ipynb`: illustrate two's complement representation of integers.
