@@ -3,8 +3,10 @@
 Code samples for in the presentation, or provided as extra material, illustrating
 certain subtle points.
 
+
 ## What is it?
 
+1. `presentation`: code used in the presentation.
 1. `coins.ipynb`: change a sum of money into coinage, comparing a brute force
    approach to recursion, memoization and dynamic programming.
 1. `condorcet_voting.ipynb`: implementation of Condorcet voting.

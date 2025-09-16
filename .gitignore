@@ -7,4 +7,9 @@
 
 # checkpoint directory
 .ipynb_checkpoints/
+
+# Jupyter Lab LSP temporary files
+.virtual_documents/
+
+# Powerpoint backup file
 /~$python_for_programmers.pptx
