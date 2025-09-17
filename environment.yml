@@ -4,5 +4,10 @@ channels:
 dependencies:
   - python
   - jupyterlab
+  - nbdime
   - matplotlib
+  - numpy
+  - pandas
+  - tables
+  - mypy
 prefix: /home/gjb/mambaforge/envs/python_for_programmers
