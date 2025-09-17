@@ -12,6 +12,8 @@ Repository for participants of the "Python for programmers" training
   specific topics.
 * `hands-on`: hands-on exercises for participants to follow along with the
   presentation.
+* `extra_exercises.md`: additional exercises for participants to practice
+  their Python skills.
 * `environment.yml`/`python_for_programmers_linux64_conda_specs.txt`: conda
   environment specifications with all Python packages used in this material.
 * `docs`: website for this training.
