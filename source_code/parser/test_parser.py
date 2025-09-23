@@ -1,7 +1,7 @@
 import io
 import os
 import pytest
-from parser import Parser
+from block_parser import Parser
 
 
 def test_success(tmp_path):
