@@ -68,8 +68,7 @@ class Parser:
         bool
             True when the line marks the beginning of a block.
         """
-        match = self._block_begin_re.match(line)
-        if match:
+        if match := self._block_begin_re.match(line):
             self._current_block_name = match.group(1)
             self._current_block = []
             return True
