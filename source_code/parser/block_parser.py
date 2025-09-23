@@ -35,6 +35,7 @@ class Parser:
         self._state = State.start
         self._comment_str = '#'
         self._current_block_name = None
+        self._current_block = None
         self._block_begin_re = re.compile(r'begin\s+block\s+(\w+)\s*$')
         self._block_end_re = re.compile(r'end\s+block\s+(\w+)\s*$')
         self._item_re = re.compile(r'item\s+(\w+)\s*$')
@@ -55,8 +56,8 @@ class Parser:
         """
         return line.startswith(self._comment_str)
 
-    def _is_block_begin(self, line: str) -> bool:
-        """Detect the start of a new block and prepare block state.
+    def _match_block_begin(self, line: str) -> str | None:
+        """Return the block name when the line starts a new block.
 
         Parameters
         ----------
@@ -65,17 +66,26 @@ class Parser:
 
         Returns
         -------
-        bool
-            True when the line marks the beginning of a block.
+        str or None
+            Block name when the line starts a block, otherwise ``None``.
         """
         if match := self._block_begin_re.match(line):
-            self._current_block_name = match.group(1)
-            self._current_block = []
-            return True
-        return False
+            return match.group(1)
+        return None
 
-    def _is_block_end(self, line: str) -> bool:
-        """Detect the end of the current block and persist its items.
+    def _start_block(self, block_name: str) -> None:
+        """Initialise parser state for a newly opened block.
+
+        Parameters
+        ----------
+        block_name : str
+            Name of the block that has just started.
+        """
+        self._current_block_name = block_name
+        self._current_block = []
+
+    def _match_block_end(self, line: str) -> str | None:
+        """Return the block name when the line closes a block.
 
         Parameters
         ----------
@@ -84,25 +94,34 @@ class Parser:
 
         Returns
         -------
-        bool
-            True when the line closes the current block.
+        str or None
+            Block name captured from the closing statement, else ``None``.
+        """
+        if match := self._block_end_re.match(line):
+            return match.group(1)
+        return None
+
+    def _finish_block(self, block_name: str) -> None:
+        """Persist the current block items and clear active block state.
+
+        Parameters
+        ----------
+        block_name : str
+            Name provided in the closing statement.
 
         Raises
         ------
         ValueError
-            If the closing block name does not match the active block.
+            If the closing name does not match the active block.
         """
-        if match := self._block_end_re.match(line):
-            if match.group(1) != self._current_block_name:
-                raise ValueError(f'block "{self._current_block_name}" is ended by "{match.group(1)}"')
-            self._blocks[self._current_block_name] = self._current_block
-            self._current_block_name = None
-            self._current_block = None
-            return True
-        return False
+        if block_name != self._current_block_name:
+            raise ValueError(f'block "{self._current_block_name}" is ended by "{block_name}"')
+        self._blocks[self._current_block_name] = self._current_block
+        self._current_block_name = None
+        self._current_block = None
 
-    def _is_item(self, line: str) -> bool:
-        """Detect an item entry and append it to the active block.
+    def _match_item(self, line: str) -> str | None:
+        """Return the item value when the line defines an item.
 
         Parameters
         ----------
@@ -111,13 +130,22 @@ class Parser:
 
         Returns
         -------
-        bool
-            True when the line contains a valid item.
+        str or None
+            Item identifier when the line defines an item, else ``None``.
         """
         if match := self._item_re.match(line):
-            self._current_block.append(match.group(1))
-            return True
-        return False
+            return match.group(1)
+        return None
+
+    def _append_item(self, item: str) -> None:
+        """Append an item value to the active block.
+
+        Parameters
+        ----------
+        item : str
+            Item identifier extracted from the line.
+        """
+        self._current_block.append(item)
 
     def parse(self, file_name: str) -> Blocks:
         """Parse a block-formatted text file into named collections.
@@ -148,19 +176,22 @@ class Parser:
                     continue
                 match self._state:
                     case State.start:
-                        if self._is_block_begin(line):
+                        if block_name := self._match_block_begin(line):
+                            self._start_block(block_name)
                             self._state = State.in_block
                         else:
                             raise ValueError(f'line {line_nr}: expecting begin block, got "{line}"')
                     case State.in_block:
-                        if self._is_item(line):
-                            pass
-                        elif self._is_block_end(line):
+                        if item := self._match_item(line):
+                            self._append_item(item)
+                        elif block_name := self._match_block_end(line):
+                            self._finish_block(block_name)
                             self._state = State.not_in_block
                         else:
                             raise ValueError(f'line {line_nr}: expected item or end block, got "{line}"')
                     case State.not_in_block:
-                        if self._is_block_begin(line):
+                        if block_name := self._match_block_begin(line):
+                            self._start_block(block_name)
                             self._state = State.in_block
                         else:
                             raise ValueError(f'line {line_nr}: expected begin block, got "{line}"')
