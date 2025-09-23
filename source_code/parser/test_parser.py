@@ -27,7 +27,11 @@ end block b3
     fpath.write_text(content)
     blocks = p.parse(str(fpath))
     assert len(blocks) == 3, f'3 blocks expected, got {len(blocks)}'
-    assert set(blocks.keys()) == set(('b1', 'b2', 'b3')), f'unexpected block names {set(blocks.keys())}'
+    assert set(blocks.keys()) == {
+        'b1',
+        'b2',
+        'b3',
+    }, f'unexpected block names {set(blocks.keys())}'
     for i, nr_items in enumerate((2, 3, 0)):
         assert len(blocks[f'b{i + 1}']) == nr_items, 'expected {nr_items} for b{i + 1}'
 
