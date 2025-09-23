@@ -116,8 +116,7 @@ class Parser:
         bool
             True when the line contains a valid item.
         """
-        match = self._item_re.match(line)
-        if match:
+        if match := self._item_re.match(line):
             self._current_block.append(match.group(1))
             return True
         return False
