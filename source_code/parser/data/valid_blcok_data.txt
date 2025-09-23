@@ -1,0 +1,15 @@
+begin block b1
+  item v1
+  item v2
+end block b1
+
+begin block b2
+  item v3
+  # comment on v4
+  item v4
+  item v5
+end block b2
+
+# comment on b3, empty block
+begin block b3
+end block b3

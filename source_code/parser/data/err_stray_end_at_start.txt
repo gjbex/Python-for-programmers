@@ -1,0 +1,2 @@
+# file: err_stray_end_at_start.txt
+end block b1

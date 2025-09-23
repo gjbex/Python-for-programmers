@@ -1,0 +1,4 @@
+# file: err_item_without_name.txt
+begin block b1
+  item
+end block b1

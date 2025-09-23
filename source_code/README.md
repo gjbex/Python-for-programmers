@@ -57,3 +57,4 @@ certain subtle points.
 1. `intersection_trees`: find the intervals in a query that intersect with a set of
    intervals in a database, using an interval tree.
 1. `two_complement.ipynb`: illustrate two's complement representation of integers.
+1. `parser`: á parser for a simple file format illustraing enums and the match statement.

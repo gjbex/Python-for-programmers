@@ -1,0 +1,4 @@
+# file: err_mismatched_end.txt
+begin block b1
+  item v1
+end block b2

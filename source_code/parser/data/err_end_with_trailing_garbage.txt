@@ -1,0 +1,4 @@
+# file: err_end_with_trailing_garbage.txt
+begin block b1
+  item v1
+end block b1 extra
