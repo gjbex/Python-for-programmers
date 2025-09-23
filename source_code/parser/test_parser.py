@@ -30,10 +30,19 @@ end block b3
     assert set(blocks.keys()) == {
         'b1',
         'b2',
-        'b3',
-    }, f'unexpected block names {set(blocks.keys())}'
+    assert len(blocks) == 3, f'3 blocks expected, got {len(blocks)}'
+    assert set(blocks.keys()) == set(('b1', 'b2', 'b3')), f'unexpected block names {set(blocks.keys())}'
     for i, nr_items in enumerate((2, 3, 0)):
         assert len(blocks[f'b{i + 1}']) == nr_items, 'expected {nr_items} for b{i + 1}'
+
+    # Assert actual item values for each block
+    expected_items = {
+        'b1': ['v1', 'v2'],
+        'b2': ['v3', 'v4', 'v5'],
+        'b3': [],
+    }
+    for block_name, items in expected_items.items():
+        assert blocks[block_name] == items, f"Block {block_name} items mismatch: expected {items}, got {blocks[block_name]}"
 
 CASES = [
     ("err_start_with_item.txt", "item v1", 'line 1: expecting begin block'),
