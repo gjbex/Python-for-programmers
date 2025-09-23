@@ -1,0 +1,5 @@
+# file: err_garbage_inside_block.txt
+begin block b1
+  item v1
+  foo
+end block b1

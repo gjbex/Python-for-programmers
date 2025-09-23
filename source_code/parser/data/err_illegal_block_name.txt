@@ -1,0 +1,2 @@
+# file: err_illegal_block_name.txt
+begin block bad-name

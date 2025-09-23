@@ -1,0 +1,3 @@
+# file: err_unterminated_block.txt
+begin block b1
+  item v1
