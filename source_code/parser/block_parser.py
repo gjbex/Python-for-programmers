@@ -93,8 +93,7 @@ class Parser:
         ValueError
             If the closing block name does not match the active block.
         """
-        match = self._block_end_re.match(line)
-        if match:
+        if match := self._block_end_re.match(line):
             if match.group(1) != self._current_block_name:
                 raise ValueError(f'block "{self._current_block_name}" is ended by "{match.group(1)}"')
             self._blocks[self._current_block_name] = self._current_block
