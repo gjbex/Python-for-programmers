@@ -125,7 +125,7 @@ class Node:
             results.append((self._start, self._end))
         if self._left is not None and self._left._max_end >= interval[0]:
             self._left._search(interval, results)
-        if self._right is not None and self._right._max_end >= interval[0]:
+        if self._right is not None and self._start < interval[1]:
             self._right._search(interval, results)
 
     def to_str(self, prefix: str = '') -> str:
