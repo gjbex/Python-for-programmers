@@ -28,18 +28,19 @@ QueryResult: typing.TypeAlias = list[tuple[Interval, Interval]]
 
 class ArrayTree:
     '''Array-based intersection tree implementation.
-    
-    Each node is represented by an index, and the tree data is stored in arrays:
+
+    Each node is represented by an index, and the tree data is stored in
+    arrays:
     - start[i]: start value of interval at node i
-    - end[i]: end value of interval at node i  
+    - end[i]: end value of interval at node i
     - max_end[i]: maximum end value in subtree rooted at node i
     - left[i]: index of left child of node i (-1 if None)
     - right[i]: index of right child of node i (-1 if None)
     '''
-    
+
     def __init__(self, initial_capacity: int = 1000) -> None:
         '''Initialize empty array-based tree with given initial capacity.
-        
+
         Parameters
         ----------
         initial_capacity: int
@@ -48,26 +49,26 @@ class ArrayTree:
         self._capacity = initial_capacity
         self._size = 0
         self._root = -1  # -1 indicates empty tree
-        
+
         # Initialize arrays
         self.start = [-1] * self._capacity
         self.end = [-1] * self._capacity
         self.max_end = [-1] * self._capacity
         self.left = [-1] * self._capacity
         self.right = [-1] * self._capacity
-    
+
     def _resize(self) -> None:
         '''Double the capacity of all arrays when needed.'''
         old_capacity = self._capacity
         self._capacity *= 2
-        
+
         # Resize all arrays
         self.start.extend([-1] * old_capacity)
         self.end.extend([-1] * old_capacity)
         self.max_end.extend([-1] * old_capacity)
         self.left.extend([-1] * old_capacity)
         self.right.extend([-1] * old_capacity)
-    
+
     def insert(self, interval: Interval) -> None:
         '''Insert a new interval [start, end) in the tree.
 
@@ -75,7 +76,7 @@ class ArrayTree:
         ----------
         interval: Interval
             the interval to insert
-            
+
         Raises
         ------
         ValueError
@@ -83,7 +84,7 @@ class ArrayTree:
         '''
         if interval[0] >= interval[1]:
             raise ValueError(f"Invalid interval: start ({interval[0]}) must be less than end ({interval[1]})")
-        
+
         if self._root == -1:
             # Tree is empty, create root
             if self._size >= self._capacity:
@@ -97,10 +98,10 @@ class ArrayTree:
             self._size = 1
         else:
             self._insert_at(self._root, interval)
-    
+
     def _insert_at(self, node_idx: int, interval: Interval) -> None:
         '''Insert interval at the subtree rooted at node_idx.
-        
+
         Parameters
         ----------
         node_idx: int
@@ -110,7 +111,7 @@ class ArrayTree:
         '''
         # Update max_end for current node
         self.max_end[node_idx] = max(self.max_end[node_idx], interval[1])
-        
+
         if interval[0] < self.start[node_idx]:
             # Insert in left subtree
             if self.left[node_idx] == -1:
@@ -143,10 +144,10 @@ class ArrayTree:
                 self._size += 1
             else:
                 self._insert_at(self.right[node_idx], interval)
-    
+
     def search(self, interval: Interval, results: list[Interval]) -> None:
-        '''Search for all intervals in the tree that intersect with [start, end)
-        and append them to results.
+        '''Search for all intervals in the tree that intersect with
+        [start, end) and append them to results.
 
         Parameters
         ----------
@@ -154,7 +155,7 @@ class ArrayTree:
             the interval to search for intersections
         results: list[Interval]
             list to append the results to
-            
+
         Raises
         ------
         ValueError
@@ -162,13 +163,13 @@ class ArrayTree:
         '''
         if interval[0] >= interval[1]:
             raise ValueError(f"Invalid interval: start ({interval[0]}) must be less than end ({interval[1]})")
-        
+
         if self._root != -1:
             self._search_at(self._root, interval, results)
-    
+
     def _search_at(self, node_idx: int, interval: Interval, results: list[Interval]) -> None:
         '''Search for intersections in subtree rooted at node_idx.
-        
+
         Parameters
         ----------
         node_idx: int
@@ -181,38 +182,38 @@ class ArrayTree:
         # Check if current node's interval intersects with query interval
         if self.start[node_idx] < interval[1] and interval[0] < self.end[node_idx]:
             results.append((self.start[node_idx], self.end[node_idx]))
-        
+
         # Search left subtree if it might contain intersections
         left_idx = self.left[node_idx]
         if left_idx != -1 and self.max_end[left_idx] >= interval[0]:
             self._search_at(left_idx, interval, results)
-        
+
         # Search right subtree if it might contain intersections
         right_idx = self.right[node_idx]
-        if right_idx != -1 and self.max_end[right_idx] >= interval[0]:
+        if right_idx != -1 and self.start[node_idx] < interval[1]:
             self._search_at(right_idx, interval, results)
-    
+
     def size(self) -> int:
         '''Return the number of intervals in the tree.
-        
+
         Returns
         -------
         int
             number of intervals stored in the tree
         '''
         return self._size
-    
+
     def is_empty(self) -> bool:
         '''Check if the tree is empty.
-        
+
         Returns
         -------
         bool
             True if the tree is empty, False otherwise
         '''
         return self._root == -1
-    
-    def to_str(self, node_idx: int = None, prefix: str = '') -> str:
+
+    def to_str(self, node_idx: int | None = None, prefix: str = '') -> str:
         '''Return a string representation of the tree.
 
         Parameters
@@ -231,9 +232,9 @@ class ArrayTree:
             if self._root == -1:
                 return f'{prefix}Empty tree\n'
             node_idx = self._root
-            
+
         result = f'{prefix}[{self.start[node_idx]}, {self.end[node_idx]}] (max_end={self.max_end[node_idx]}) @{node_idx}\n'
-        
+
         left_idx = self.left[node_idx]
         if left_idx != -1:
             result += self.to_str(left_idx, prefix + '  ')
@@ -241,9 +242,9 @@ class ArrayTree:
         right_idx = self.right[node_idx]
         if right_idx != -1:
             result += self.to_str(right_idx, prefix + '  ')
-            
+
         return result
-    
+
     def __str__(self) -> str:
         '''Return a string representation of the tree.
 
@@ -257,17 +258,17 @@ class ArrayTree:
 
 def generate_interval(max_end: int = 1_000_000_000) -> Interval:
     '''Generate a half-open interval of at least length 1
-    
+
     Parameters
     ----------
     max_end: int
         largest end value of the interval, default value 1_000_000_000
-        
+
     Returns
     -------
     Interval
         Tuple (start, end) such that end - start > 1
-        
+
     Raises
     ------
     ValueError
@@ -275,14 +276,15 @@ def generate_interval(max_end: int = 1_000_000_000) -> Interval:
     '''
     if max_end < 2:
         raise ValueError(f"max_end must be at least 2, got {max_end}")
-    
+
     start = random.randint(0, max_end - 2)
     end = random.randint(start + 2, max_end)
     return start, end
 
 
 def create_db(size: int, max_end: int = 1_000_000) -> ArrayTree:
-    '''Generate a database of intervals and return the array-based intersection tree.
+    '''Generate a database of intervals and return the array-based
+    intersection tree.
 
     Parameters
     ----------
@@ -344,7 +346,8 @@ def create_queries(size: int = 1_000, max_end: int = 1_000_000) -> Queries:
 
 
 def populate_db(db: ArrayTree | None, intervals: typing.Sequence[Interval]) -> ArrayTree:
-    '''Populate an existing database with additional intervals or create a new one.
+    '''Populate an existing database with additional intervals or
+    create a new one.
 
     Parameters
     ----------
@@ -365,10 +368,10 @@ def populate_db(db: ArrayTree | None, intervals: typing.Sequence[Interval]) -> A
     '''
     if len(intervals) == 0:
         raise ValueError('At least 1 interval is required')
-    
+
     if db is None:
         db = ArrayTree(initial_capacity=max(len(intervals), 1000))
-    
+
     for interval in intervals:
         db.insert(interval)
     return db
@@ -411,7 +414,7 @@ def plot_intersection_tree(tree: ArrayTree) -> None:
     if not nodes:
         return
 
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
     max_depth = max(depth for _, depth in nodes)
 
     # Draw intervals and record midpoints for connecting lines.
