@@ -190,7 +190,7 @@ class ArrayTree:
 
         # Search right subtree if it might contain intersections
         right_idx = self.right[node_idx]
-        if right_idx != -1 and self.max_end[right_idx] >= interval[0]:
+        if right_idx != -1 and self.start[node_idx] < interval[1]:
             self._search_at(right_idx, interval, results)
 
     def size(self) -> int:
