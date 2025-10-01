@@ -60,6 +60,10 @@ This is not a training that starts from scratch.
 If you plan to do Python programming in a Linux or HPC environment you should
 be familiar with these as well.
 
+For following along hands-on, you need
+* laptop or desktop with internet access;
+* software to run Jupyter notebooks, or access to Google Colab.
+
 
 ## Level
 
