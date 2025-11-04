@@ -58,3 +58,5 @@ certain subtle points.
    intervals in a database, using an interval tree.
 1. `two_complement.ipynb`: illustrate two's complement representation of integers.
 1. `parser`: á parser for a simple file format illustraing enums and the match statement.
+1. `drunken_ant_on_hypercube.ipynb`: simulate a drunken ant walking on the
+   vertices of a hypercube.
