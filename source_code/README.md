@@ -60,3 +60,6 @@ certain subtle points.
 1. `parser`: á parser for a simple file format illustraing enums and the match statement.
 1. `drunken_ant_on_hypercube.ipynb`: simulate a drunken ant walking on the
    vertices of a hypercube.
+1. `triangles.ipynb`: illustrates two simulations of cutting a rope to form a triangle
+   and the probability that the center of a circles falls into a random triangle created
+   from points on its circumference.
