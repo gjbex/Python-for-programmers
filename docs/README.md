@@ -89,6 +89,8 @@ If several of these items still feel difficult, the training will probably move
 too fast. In that case, it is better to first take a short introductory
 programming course.
 
+### Software and access requirements
+
 For following along hands-on, you need
 * laptop or desktop with internet access;
 * software to run Jupyter notebooks, or access to Google Colab.
