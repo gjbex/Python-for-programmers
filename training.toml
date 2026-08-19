@@ -1,0 +1,157 @@
+schema_version = 2
+id = "python-for-programmers"
+title = "Python for programmers"
+content_language = "en"
+summary = """
+Python is widely used in many contexts. This training introduces you to Python as a language suitable for scientific computing and data analysis. This training is intended for those who have programming experience in another language, but are new to Python. In this training you will learn how to read and write idiomatic Python code. Follow-up trainings on using Python for scientific computing and data analysis are available.
+"""
+languages = ["Python"]
+
+[[learning_outcomes]]
+statement = "Read and understand well-written Python code."
+competencies = ["python.read-and-write-idiomatic-programs"]
+
+[[learning_outcomes]]
+statement = "Write small to medium Python programs in an idiomatic style."
+competencies = ["python.read-and-write-idiomatic-programs"]
+
+[[learning_outcomes]]
+statement = "Use Python control flow, functions, and built-in data structures effectively."
+competencies = ["python.control-flow-and-comprehensions", "python.functions", "python.values-and-containers"]
+
+[[learning_outcomes]]
+statement = "Use common Python features such as comprehensions, generators, and standard-library modules."
+competencies = ["python.generators-and-standard-library"]
+
+[[learning_outcomes]]
+statement = "Recognize some best practices and common pitfalls for Python programmers."
+competencies = ["python.apply-best-practices"]
+
+[[learning_outcomes]]
+statement = "Have a solid foundation for follow-up trainings on scientific computing, data analysis, and more advanced Python topics."
+
+[source]
+metadata_document = "docs/README.md"
+repository_url = "https://github.com/gjbex/Python-for-programmers/"
+website_url = "https://gjbex.github.io/Python-for-programmers/"
+license = "CC-BY-4.0"
+
+[delivery]
+duration_minutes = 240
+duration_kind = "fixed"
+session_count = 1
+target_session_duration_minutes = 240
+schedule_complete = true
+
+[audience]
+description = """
+This training is for you if you already know how to program in another language and want to become productive in Python quickly.
+"""
+
+[prerequisites]
+summary = """
+You will need experience programming in another programming language. This is not a training that starts from scratch. If you plan to do Python programming in a Linux or HPC environment you should be familiar with these as well. More concretely, participants should already be comfortable with the following: * variables, expressions, and basic data types in some programming language; * `if`/`else` statements, loops, and writing functions; * basic data structures such as arrays/lists, maps/dictionaries, or sets; * reading short programs and understanding how data flows through them; * using the command line to run programs at a basic level. You do not need prior experience with Python itself.
+"""
+competencies = ["programming.variables-and-expressions", "programming.control-flow", "programming.functions", "programming.basic-data-structures", "programming.read-and-trace-code", "command-line.run-or-compile-programs"]
+
+[self_assessment]
+introduction = """
+If you can do most of the tasks below in some programming language, you are likely ready for this training.
+"""
+tasks = [
+  "Write a function that computes the average of a list of numbers.",
+  "Loop over a collection and count how often a value occurs.",
+  "Use `if`/`else` to classify a value into a small number of cases.",
+  "Read data from a text file and print a simple summary.",
+  "Split a problem into a few helper functions.",
+  "Read a short program and explain what it does.",
+  "Run a script from the command line with one or two arguments.",
+  "Make a small change to an existing program and run it again."
+]
+
+[requirements]
+software = [
+  "Laptop or desktop with internet access.",
+  "Software to run Jupyter notebooks, or access to Google Colab."
+]
+
+[level]
+introductory_percent = 50
+intermediate_percent = 40
+advanced_percent = 10
+description = """
+For participants who already have programming experience in another language, the material in this training is approximately These percentages describe the level of the Python topics covered in the training, not the participants' general programming background.
+"""
+
+[[materials]]
+kind = "slides"
+path = "python_for_programmers.pptx"
+
+[[materials]]
+kind = "source-code"
+path = "source_code"
+
+[[materials]]
+kind = "exercises"
+path = "hands-on"
+
+[[materials]]
+kind = "environment"
+path = "environment.yml"
+
+[[trainers]]
+name = "Geert Jan Bex"
+email = "geertjan.bex@uhasselt.be"
+
+[[maintainers]]
+name = "Geert Jan Bex"
+email = "geertjan.bex@uhasselt.be"
+
+[[sessions]]
+id = "session-1"
+title = "Session one"
+duration_minutes = 240
+
+[[sessions.items]]
+subject = "introduction and motivation"
+duration_minutes = 5
+
+[[sessions.items]]
+subject = "basics: control flow statements, data types"
+duration_minutes = 85
+
+[[sessions.items]]
+subject = "hands-on session"
+duration_minutes = 20
+
+[[sessions.items]]
+subject = "coffee break"
+duration_minutes = 10
+
+[[sessions.items]]
+subject = "functions"
+duration_minutes = 15
+
+[[sessions.items]]
+subject = "command line arguments"
+duration_minutes = 10
+
+[[sessions.items]]
+subject = "simple I/O"
+duration_minutes = 10
+
+[[sessions.items]]
+subject = "more data structures"
+duration_minutes = 35
+
+[[sessions.items]]
+subject = "list comprehensions & generators"
+duration_minutes = 15
+
+[[sessions.items]]
+subject = "recent Python features"
+duration_minutes = 20
+
+[[sessions.items]]
+subject = "hands-on session"
+duration_minutes = 20
