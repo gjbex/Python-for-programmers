@@ -63,3 +63,5 @@ certain subtle points.
 1. `triangles.ipynb`: illustrates two simulations of cutting a rope to form a triangle
    and the probability that the center of a circles falls into a random triangle created
    from points on its circumference.
+1. `hopping.ipynb`: Jupyter notebook discussing a 3Blue1Brown problem, `hopping.lean` is
+   the Lean proof.
