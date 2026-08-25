@@ -60,3 +60,5 @@ certain subtle points.
 1. `parser`: á parser for a simple file format illustraing enums and the match statement.
 1. `drunken_ant_on_hypercube.ipynb`: simulate a drunken ant walking on the
    vertices of a hypercube.
+1. `hopping.ipynb`: Jupyter notebook discussing a 3Blue1Brown problem, `hopping.lean` is
+   the Lean proof.
